@@ -1,0 +1,13 @@
+# Server
+gunicorn
+
+# App
+flask
+requests
+requests-futures
+beautifulsoup4
+
+# Test
+nose
+nose-watch
+rednose
