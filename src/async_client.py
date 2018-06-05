@@ -7,6 +7,11 @@ class AsyncHttpClient():
         self.session = FuturesSession(
             executor=ThreadPoolExecutor(max_workers=threads))
 
-    def get(self, path):
-        url = self.base_url + path
+    def get(self, path, query_string_params={}):
+        qsp = "?"
+        for k in query_string_params:
+            qsp += f"{k}={query_string_params[k]}&"
+
+        url = self.base_url + path + qsp
+        print(url)
         return self.session.get(url)
